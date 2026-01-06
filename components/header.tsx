@@ -1,0 +1,147 @@
+"use client";
+
+import Link from "next/link";
+import {
+  Heart,
+  Menu,
+  X,
+  MessageCircle,
+  AudioWaveform,
+  LogOut,
+  LogIn,
+} from "lucide-react";
+import { ThemeToggle } from "./theme-toggle";
+import { SignInButton } from "./auth/sign-in-button";
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { useSession } from "lib/context/session-context";
+import { cn } from "@/lib/utils";
+
+export default function Header() {
+  const {isAuthenticated,logout,user} = useSession();
+  const navItems = [
+    { href: "/features", label: "Features" },
+    { href: "/about", label: "About BeMindful" },
+  ];
+
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 10);
+    };
+    
+    // Check on mount (e.g. if user is already scrolled down)
+    handleScroll();
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <div 
+      className={cn(
+        "w-full fixed top-0 z-50 transition-all duration-300",
+        scrolled 
+          ? "bg-background/70 backdrop-blur-xl border-b border-primary/20 shadow-sm" 
+          : "bg-transparent border-b border-transparent"
+      )}
+    >
+      <div className="absolute inset-0">
+        <header className="relative max-w-6xl mx-auto px-4">
+          <div className="flex h-16 items-center justify-between">
+            {/*Logo*/}
+            <Link
+              href="/"
+              className="flex items-center space-x-2 transition-opacity hover:opacity-80"
+            >
+              <AudioWaveform className="h-7 w-7 text-primary animate-pulse-gentle" />
+              <div className="flex flex-col">
+                <span className="font-semibold text-lg bg-gradient-to-r from-primary to-primary/80 bg-clip-text text-transparent">
+                  BeMindful
+                </span>
+                <span className="text-xs dark:text-muted-foreground">
+                  Your mental health Companion{" "}
+                </span>
+              </div>
+            </Link>
+            <div className="flex items-center gap-4">
+              <nav className="hidden md:flex items-center space-x-1">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="px-4 py-2 text-sm font-medium text-muted-foreground hover:text-foreground transition-colors relative group"
+                  >
+                    {item.label}
+                    <span className="absolute bottom-0 left-0 w-full h-0.5 bg-primary scale-x-0 group-hover:scale-x-100 transition-transform duration-200 origin-left" />
+                  </Link>
+                ))}
+              </nav>
+
+              <div className="flex items-center gap-3">
+                <ThemeToggle />
+                {isAuthenticated ? (
+                <>
+                  <Button
+                    asChild
+                    className="hidden md:flex gap-2 bg-primary/90 hover:bg-primary"
+                  >
+                    <Link href="/dashboard">
+                      <MessageCircle className="w-4 h-4 mr-1" />
+                      Start Chat
+                    </Link>
+                  </Button>
+                  <Button
+                    variant="outline"
+                    onClick={logout}
+                    className="text-muted-foreground hover:text-foreground transition-colors"
+                  >
+                    <LogOut className="w-4 h-4 mr-2" />
+                    Sign out
+                  </Button>
+                </>
+              ) : (
+                <SignInButton />
+              )}
+
+                
+                <Button
+                  variant="ghost"
+                  size="icon"
+                  className="md:hidden"
+                  onClick={() => setIsMenuOpen(!isMenuOpen)}
+                >
+                  {isMenuOpen ? (
+                    <X className="h-5 w-5" />
+                  ) : (
+                    <Menu className="h-5 w-5" />
+                  )}
+                </Button>
+              </div>
+            </div>
+          </div>
+          {/* Mobile menu */}
+          {isMenuOpen && (
+            <div className="md:hidden border-t border-primary/10 bg-background/95 backdrop-blur-lg">
+              <nav className="flex flex-col space-y-1 py-4">
+                {navItems.map((item) => (
+                  <Link
+                    key={item.href}
+                    href={item.href}
+                    className="px-4 py-3 text-sm font-medium text-muted-foreground hover:text-foreground hover:bg-primary/5 rounded-md transition-colors"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item.label}
+                  </Link>
+                ))}
+              </nav>
+            </div>
+          )}
+        </header>
+
+      </div>
+    </div >
+  );
+}
