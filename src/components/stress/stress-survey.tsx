@@ -148,7 +148,7 @@ export function StressSurveyModal({ mode, open, onOpenChange, onSubmit, initialD
                 ) : (
                   <>
                     <Slider
-                      value={[answers[item.id] as number ?? getDefaultValue(item)]}
+                      value={[Number(answers[item.id] ?? getDefaultValue(item))]}
                       min={item.options?.[0]?.value as number ?? 0}
                       max={
                         item.options?.[item.options.length - 1]?.value as number ??

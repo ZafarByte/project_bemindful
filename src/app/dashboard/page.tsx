@@ -38,6 +38,7 @@ import { StreakMilestoneModal } from "@/components/ui/streak-milestone-modal";
 import { ReportDownloadButton } from "@/components/reports/report-download-button";
 import { RecommendationsModal } from "@/components/ui/recommendations-modal";
 import { RecommendationCard } from "@/components/dashboard/recommendation-card";
+import { WellnessResources } from "@/components/dashboard/wellness-resources";
 
 interface DailyStats {
     moodScore: number | null;
@@ -503,6 +504,9 @@ export default function DashboardPage() {
                             </h2>
                             <AnxietyGames />
                         </div>
+
+                        {/* Wellness Resources Section */}
+                        <WellnessResources />
                     </div>
 
                     {/* Right Column: Sidebar (1/3) */}
