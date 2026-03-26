@@ -5,7 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { Search, Plus, Save, Loader2, History, Sparkles, ArrowLeft, Edit2, BookOpen, PenLine } from "lucide-react";
+import { Search, Plus, Save, Loader2, History, Sparkles, ArrowLeft, Edit2, BookOpen, PenLine, Lock } from "lucide-react";
 import { logActivity, fetchActivities, updateActivity } from "@/lib/api/activity";
 import { cn } from "@/lib/utils";
 import { format } from "date-fns";
@@ -37,7 +37,7 @@ export function JournalCard() {
   const [searchQuery, setSearchQuery] = useState("");
   const [entries, setEntries] = useState<JournalEntry[]>([]);
   const [loading, setLoading] = useState(false);
-  const [saving, setSaving] = useState(false);
+  const [saveStatus, setSaveStatus] = useState<"idle" | "encrypting" | "saving">("idle");
   const [selectedEntry, setSelectedEntry] = useState<JournalEntry | null>(null);
   const [isEditing, setIsEditing] = useState(false);
 
@@ -68,7 +68,12 @@ export function JournalCard() {
 
   const handleSave = async () => {
     if (!note.trim()) return;
-    setSaving(true);
+    setSaveStatus("encrypting");
+    
+    // Simulate encryption
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    setSaveStatus("saving");
     try {
       await logActivity({
         type: "journaling",
@@ -81,13 +86,18 @@ export function JournalCard() {
       console.error("Failed to save note", error);
       alert("Failed to save note");
     } finally {
-      setSaving(false);
+      setSaveStatus("idle");
     }
   };
 
   const handleUpdate = async () => {
     if (!selectedEntry || !note.trim()) return;
-    setSaving(true);
+    setSaveStatus("encrypting");
+    
+    // Simulate encryption
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    
+    setSaveStatus("saving");
     try {
       await updateActivity(selectedEntry._id, {
         description: note.trim(),
@@ -104,7 +114,7 @@ export function JournalCard() {
       console.error("Failed to update note", error);
       alert("Failed to update note");
     } finally {
-      setSaving(false);
+      setSaveStatus("idle");
     }
   };
 
@@ -245,14 +255,23 @@ export function JournalCard() {
               </div>
             </div>
 
-            <div className="flex justify-end pt-2">
+            <div className="flex flex-col sm:flex-row justify-between items-center gap-3 pt-2">
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground/80 px-1">
+                <Lock className="h-3 w-3" />
+                <span>All your notes are encrypted. Feel free to express yourself.</span>
+              </div>
               <Button 
                 size="sm" 
                 onClick={handleSave} 
-                disabled={!note.trim() || saving}
+                disabled={!note.trim() || saveStatus !== 'idle'}
                 className="w-full sm:w-auto rounded-lg shadow-sm"
               >
-                {saving ? (
+                {saveStatus === 'encrypting' ? (
+                  <>
+                    <Lock className="mr-2 h-4 w-4 animate-pulse" />
+                    Encrypting...
+                  </>
+                ) : saveStatus === 'saving' ? (
                   <>
                     <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                     Saving...
@@ -293,16 +312,21 @@ export function JournalCard() {
                     setIsEditing(false);
                     setNote(selectedEntry?.description || "");
                   }}
-                  disabled={saving}
+                  disabled={saveStatus !== 'idle'}
                 >
                   Cancel
                 </Button>
                 <Button 
                   size="sm" 
                   onClick={handleUpdate} 
-                  disabled={!note.trim() || saving}
+                  disabled={!note.trim() || saveStatus !== 'idle'}
                 >
-                  {saving ? (
+                  {saveStatus === 'encrypting' ? (
+                    <>
+                      <Lock className="mr-2 h-4 w-4 animate-pulse" />
+                      Encrypting...
+                    </>
+                  ) : saveStatus === 'saving' ? (
                     <>
                       <Loader2 className="mr-2 h-4 w-4 animate-spin" />
                       Saving...

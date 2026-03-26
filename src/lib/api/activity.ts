@@ -31,7 +31,7 @@ export async function logActivity(
 
 export async function fetchActivities(
   params: { type?: string; search?: string; limit?: number } = {}
-): Promise<{ success: boolean; data: any[] }> {
+): Promise<{ success: boolean; data: any[]; total?: number }> {
   const token = localStorage.getItem("token");
   if (!token) throw new Error("Not authenticated");
 

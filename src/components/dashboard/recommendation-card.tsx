@@ -1,19 +1,32 @@
 import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { CheckCircle2, AlertCircle, Sparkles, Stethoscope } from "lucide-react";
+import { CheckCircle2, AlertCircle, Sparkles, Stethoscope, PlusCircle, Check } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { useState } from "react";
 import { PsychiatristListModal } from "./psychiatrist-list-modal";
+import { createTodo } from "@/lib/api/todo";
 
 interface RecommendationCardProps {
   recommendations: string[];
   className?: string;
   needsProfessionalHelp?: boolean;
+  onTodoAdded?: () => void;
 }
 
-export function RecommendationCard({ recommendations, className, needsProfessionalHelp }: RecommendationCardProps) {
+export function RecommendationCard({ recommendations, className, needsProfessionalHelp, onTodoAdded }: RecommendationCardProps) {
   const [showPsychiatristModal, setShowPsychiatristModal] = useState(false);
+  const [addedRecs, setAddedRecs] = useState<Set<number>>(new Set());
+
+  const handleAddToTodo = async (rec: string, index: number) => {
+    try {
+        await createTodo(rec, "recommendation");
+        setAddedRecs(prev => new Set(Array.from(prev).concat(index)));
+        if (onTodoAdded) onTodoAdded();
+    } catch (error) {
+        console.error("Failed to add todo", error);
+    }
+  };
 
   return (
     <>
@@ -46,9 +59,24 @@ export function RecommendationCard({ recommendations, className, needsProfession
             {recommendations && recommendations.length > 0 ? (
               <div className="space-y-2">
                 {recommendations.map((rec, index) => (
-                  <div key={index} className="flex items-start gap-3 p-2 rounded-lg border bg-card/50">
+                  <div key={index} className="flex items-start gap-3 p-2 rounded-lg border bg-card/50 group relative">
                     <CheckCircle2 className="w-5 h-5 text-green-500 mt-0.5 shrink-0" />
-                    <p className="text-sm text-foreground/90 leading-relaxed">{rec}</p>
+                    <p className="text-sm text-foreground/90 leading-relaxed flex-1 pr-6">{rec}</p>
+                    
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="h-6 w-6 opacity-0 group-hover:opacity-100 transition-opacity absolute right-2 top-2"
+                        title={addedRecs.has(index) ? "Added to plan" : "Add to Action Plan"}
+                        disabled={addedRecs.has(index)}
+                        onClick={() => handleAddToTodo(rec, index)}
+                    >
+                        {addedRecs.has(index) ? (
+                            <Check className="w-4 h-4 text-green-500" />
+                        ) : (
+                            <PlusCircle className="w-4 h-4 text-primary" />
+                        )}
+                    </Button>
                   </div>
                 ))}
               </div>

@@ -23,12 +23,11 @@ import { useSession } from "../../../lib/context/session-context";
 import { AnxietyGames } from "../../../components/games/anxiety-games";
 import { useRouter } from "next/navigation";
 import { format } from "date-fns";
-import { MoodForm } from "../../../components/mood/mood-form";
-import { ActivityLogger } from "../../../components/activities/activity-logger";
 import { StressSurveyModal } from "@/components/stress/stress-survey";
 import { fetchStressSummary, submitBaseline, submitDaily } from "@/lib/api/stress";
 import { getMoodHistory, getLatestRecommendations } from "@/lib/api/mood";
-import { logActivity as logActivityApi } from "@/lib/api/activity";
+import { logActivity as logActivityApi, fetchActivities } from "@/lib/api/activity";
+import { getTodos, TodoItem } from "@/lib/api/todo";
 import { getAllChatSessions } from "@/lib/api/chat";
 import { combinedScore as combineScores, labelScore } from "@/lib/stress-questions";
 import { MoodTrend } from "@/components/mood/mood-trend";
@@ -39,6 +38,8 @@ import { ReportDownloadButton } from "@/components/reports/report-download-butto
 import { RecommendationsModal } from "@/components/ui/recommendations-modal";
 import { RecommendationCard } from "@/components/dashboard/recommendation-card";
 import { WellnessResources } from "@/components/dashboard/wellness-resources";
+import { TodoList } from "@/components/todo/todo-list";
+
 
 interface DailyStats {
     moodScore: number | null;
@@ -80,24 +81,31 @@ interface StressSummary {
     } | null;
 }
 
+import { useCallback } from "react";
+
 export default function DashboardPage() {
     const { checkSession } = useSession();
      const {isAuthenticated,logout,user} = useSession();
     const [currentTime, setCurrentTime] = useState(new Date());
-    const [showMoodModal, setShowMoodModal] = useState(false);
     const router = useRouter();
-    const [showActivityLogger, setShowActivityLogger] = useState(false);
     const [stressSummary, setStressSummary] = useState<StressSummary | null>(null);
     const [loadingStress, setLoadingStress] = useState(true);
     const [showBaselineModal, setShowBaselineModal] = useState(false);
     const [showDailyModal, setShowDailyModal] = useState(false);
     const [sessionCount, setSessionCount] = useState(0);
+    const [activityCount, setActivityCount] = useState(0);
     const [latestMoodScore, setLatestMoodScore] = useState<number | null>(null);
     const [showStreakModal, setShowStreakModal] = useState(false);
     const [streakMilestone, setStreakMilestone] = useState(0);
     const [recommendations, setRecommendations] = useState<string[]>([]);
     const [needsProfessionalHelp, setNeedsProfessionalHelp] = useState(false);
     const [showRecommendationsModal, setShowRecommendationsModal] = useState(false);
+    const [todoRefreshTrigger, setTodoRefreshTrigger] = useState(0);
+    const [todoStats, setTodoStats] = useState({ total: 0, completed: 0 });
+
+    const handleTodoStatsChange = useCallback((total: number, completed: number) => {
+        setTodoStats({ total, completed });
+    }, []);
 
     const isToday = (isoDate: string | null | undefined) => {
         if (!isoDate) return false;
@@ -118,14 +126,19 @@ export default function DashboardPage() {
                 return;
             }
             try {
-                const [summary, sessions, moodHistory, latestRecs] = await Promise.all([
+                const [summary, sessions, moodHistory, latestRecs, activitiesRes] = await Promise.all([
                     fetchStressSummary(),
                     getAllChatSessions().catch(() => []),
                     getMoodHistory({ limit: 1 }).catch(() => ({ data: [] })),
-                    getLatestRecommendations().catch(() => ({ recommendations: [], needsProfessionalHelp: false }))
+                    getLatestRecommendations().catch(() => ({ recommendations: [], needsProfessionalHelp: false })),
+                    fetchActivities({ limit: 1 }).catch(() => ({ success: false, data: [], total: 0 }))
                 ]);
                 
                 setStressSummary(summary);
+                if (activitiesRes.total !== undefined) {
+                    setActivityCount(activitiesRes.total);
+                }
+
                 
                 if (latestRecs.recommendations && latestRecs.recommendations.length > 0) {
                     setRecommendations(latestRecs.recommendations);
@@ -218,11 +231,11 @@ export default function DashboardPage() {
             },
             {
                 title: "Completion Rate",
-                value: stressSummary?.latestDaily ? "100%" : "0%",
+                value: todoStats.total > 0 ? `${Math.round((todoStats.completed / todoStats.total) * 100)}%` : "0%",
                 icon: Trophy,
                 color: "text-yellow-500",
                 bgColor: "bg-yellow-500/10",
-                description: "Daily check-in completion",
+                description: "Action Plan completion",
             },
             {
                 title: "Therapy Sessions",
@@ -234,11 +247,11 @@ export default function DashboardPage() {
             },
             {
                 title: "Total Activities",
-                value: "0",
+                value: `${activityCount}`,
                 icon: ActivityIcon,
                 color: "text-blue-500",
                 bgColor: "bg-blue-500/10",
-                description: "Planned for today",
+                description: "Mindful Activities done",
             },
         ] as {
             title: string;
@@ -248,7 +261,7 @@ export default function DashboardPage() {
             bgColor: string;
             description: string;
         }[];
-    }, [baselineScore, combinedValue, dailyScore, stressSummary?.latestDaily, sessionCount, stressSummary?.streak]);
+    }, [baselineScore, combinedValue, dailyScore, stressSummary?.latestDaily, sessionCount, stressSummary?.streak, activityCount, todoStats]);
 
     const [dailyStats, setDailyStats] = useState<DailyStats>({
         moodScore: null,
@@ -261,27 +274,6 @@ export default function DashboardPage() {
     // removed insights state as it wasn't used; re-add if you plan to show it
     // const [insights, setInsights] = useState<...>([]);
 
-    const handleMoodSuccess = async (recs?: string[], needsProfHelp?: boolean) => {
-        setShowMoodModal(false);
-        if (recs && recs.length > 0) {
-            setRecommendations(recs);
-            setNeedsProfessionalHelp(!!needsProfHelp);
-            setShowRecommendationsModal(true);
-        }
-
-        try {
-            const moodHistory = await getMoodHistory({ limit: 1 });
-            if (moodHistory.data && moodHistory.data.length > 0) {
-                setLatestMoodScore(moodHistory.data[0].score);
-            }
-        } catch (error) {
-            console.error("Failed to refresh mood score", error);
-        }
-    };
-
-    const handleAICheckIn = () => {
-        setShowActivityLogger(true);
-    };
    const handleStartTherapy = async () => {
   try {
     console.log("Attempting client navigation to /therapy/new");
@@ -581,8 +573,17 @@ export default function DashboardPage() {
                         <RecommendationCard 
                             recommendations={recommendations} 
                             needsProfessionalHelp={needsProfessionalHelp}
+                            onTodoAdded={() => setTodoRefreshTrigger(prev => prev + 1)}
                         />
 
+                        {/* Todo List */}
+                        <div className="h-[400px]">
+                            <TodoList 
+                                refreshTrigger={todoRefreshTrigger} 
+                                onStatsChange={handleTodoStatsChange}
+                            />
+                        </div>
+                        
                         {/* Quick Actions Card */}
                         <Card className="border-primary/10 relative overflow-hidden group shadow-md">
                             <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-primary/10 to-transparent" />
@@ -615,25 +616,6 @@ export default function DashboardPage() {
                                     </div>
                                     <ArrowRight className="w-5 h-5 text-white opacity-80 group-hover/button:translate-x-1 transition-transform" />
                                 </Button>
-
-                                <div className="grid grid-cols-2 gap-3">
-                                    <Button
-                                        variant="outline"
-                                        className="h-auto py-4 flex flex-col gap-2 hover:border-rose-500/50 hover:bg-rose-500/5"
-                                        onClick={() => setShowMoodModal(true)}
-                                    >
-                                        <Heart className="w-6 h-6 text-rose-500" />
-                                        <span className="text-xs font-medium">Log Mood</span>
-                                    </Button>
-                                    <Button
-                                        variant="outline"
-                                        className="h-auto py-4 flex flex-col gap-2 hover:border-blue-500/50 hover:bg-blue-500/5"
-                                        onClick={handleAICheckIn}
-                                    >
-                                        <BrainCircuit className="w-6 h-6 text-blue-500" />
-                                        <span className="text-xs font-medium">Check-in</span>
-                                    </Button>
-                                </div>
                             </CardContent>
                         </Card>
 
@@ -645,24 +627,6 @@ export default function DashboardPage() {
                     </div>
                 </div>
             </Container>
-
-            {/* Mood tracking modal */}
-            <Dialog open={showMoodModal} onOpenChange={setShowMoodModal}>
-                <DialogContent className="sm:max-w-[425px]">
-                    <DialogHeader>
-                        <DialogTitle>How are you feeling?</DialogTitle>
-                        <DialogDescription>
-                            Move the slider to track your current mood
-                        </DialogDescription>
-                    </DialogHeader>
-                    <MoodForm onSuccess={handleMoodSuccess} />
-                </DialogContent>
-            </Dialog>
-
-            <ActivityLogger
-                open={showActivityLogger}
-                onOpenChange={setShowActivityLogger}
-            />
 
             <StressSurveyModal
                 mode="baseline"

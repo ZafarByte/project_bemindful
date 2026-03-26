@@ -41,21 +41,25 @@ export interface ApiResponse {
 }
 
 const API_BASE =
+  process.env.NEXT_PUBLIC_BACKEND_API_URL ||
   process.env.BACKEND_API_URL ||
   "http://localhost:3001";
 
 // Helper function to get auth headers
 const getAuthHeaders = () => {
-  const token = localStorage.getItem("token");
-  return {
+  const token = typeof window !== "undefined" ? localStorage.getItem("token") : null;
+  const headers: Record<string, string> = {
     "Content-Type": "application/json",
-    Authorization: token ? `Bearer ${token}` : "",
   };
+  if (token) {
+    headers["Authorization"] = `Bearer ${token}`;
+  }
+  return headers;
 };
 
 export const createChatSession = async (): Promise<string> => {
   try {
-    console.log("Creating new chat session...");
+    console.log("Creating new chat session...", { API_BASE });
     const response = await fetch(`${API_BASE}/api/chat/sessions`, {
       method: "POST",
       headers: getAuthHeaders(),

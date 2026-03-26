@@ -467,3 +467,157 @@
 {"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-01-11T05:13:11.441Z"}
 {"level":"info","message":"Server is running on port 3001","timestamp":"2026-01-11T05:13:11.514Z"}
 {"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-01-11T05:13:11.518Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-01-17T12:36:50.573Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-01-17T12:36:50.602Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-01-17T12:36:50.605Z"}
+{"clampedScore":49.63,"level":"info","message":"Mood model response","moodScoreRaw":49.63,"moodType":"Neutral","payload":{"mood_score":49.63,"mood_type":"Neutral"},"timestamp":"2026-01-17T12:39:54.849Z","url":"http://localhost:8000/predict"}
+{"features":[6,2,1,0,1,5,5,5,1,4,2,3,1,1,3,2,1,2,4,1,2],"level":"info","message":"AI mood model used for stress daily check-in","moodScore":49.63,"moodType":"Neutral","timestamp":"2026-01-17T12:39:54.953Z","userId":"6947826eab6a42942db990b5"}
+{"combinedScore":0.4963,"label":"Neutral","level":"info","message":"Daily check-in stored","moodScore":49.63,"moodType":"Neutral","timestamp":"2026-01-17T12:39:55.063Z","userId":"6947826eab6a42942db990b5"}
+{"code":"ECONNREFUSED","hostname":"_mongodb._tcp.bemindful.ztqkjkj.mongodb.net","level":"error","message":"MongoDB connection error: querySrv ECONNREFUSED _mongodb._tcp.bemindful.ztqkjkj.mongodb.net","stack":"Error: querySrv ECONNREFUSED _mongodb._tcp.bemindful.ztqkjkj.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17)","syscall":"querySrv","timestamp":"2026-01-17T15:30:35.159Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-01-17T15:41:00.737Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-01-17T15:41:00.757Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-01-17T15:41:00.759Z"}
+{"clampedScore":41.14,"level":"info","message":"Mood model response","moodScoreRaw":41.14,"moodType":"Moderate Stress","payload":{"mood_score":41.14,"mood_type":"Moderate Stress"},"timestamp":"2026-01-17T15:43:17.094Z","url":"http://localhost:8000/predict"}
+{"features":[6,2,1,0,1,5,5,5,1,4,2,3,1,1,3,2,2,2,2,2,2],"level":"info","message":"AI mood model used for baseline","moodScore":41.14,"timestamp":"2026-01-17T15:43:17.207Z","userId":"6947826eab6a42942db990b5"}
+{"baselineScore":0.4114,"level":"info","message":"Baseline stored","timestamp":"2026-01-17T15:43:17.305Z","userId":"6947826eab6a42942db990b5"}
+{"clampedScore":41.14,"level":"info","message":"Mood model response","moodScoreRaw":41.14,"moodType":"Moderate Stress","payload":{"mood_score":41.14,"mood_type":"Moderate Stress"},"timestamp":"2026-01-17T15:43:29.250Z","url":"http://localhost:8000/predict"}
+{"features":[6,2,1,0,1,5,5,5,1,4,2,3,1,1,3,2,2,2,2,2,2],"level":"info","message":"AI mood model used for stress daily check-in","moodScore":41.14,"moodType":"Moderate Stress","timestamp":"2026-01-17T15:43:29.363Z","userId":"6947826eab6a42942db990b5"}
+{"combinedScore":0.4114,"label":"Moderate Stress","level":"info","message":"Daily check-in stored","moodScore":41.14,"moodType":"Moderate Stress","timestamp":"2026-01-17T15:43:29.446Z","userId":"6947826eab6a42942db990b5"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-01-17T15:44:53.722Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-01-17T15:44:53.732Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-01-17T15:44:53.733Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-01-17T15:45:29.457Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-01-17T15:45:29.468Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-01-17T15:45:29.468Z"}
+{"clampedScore":39.31,"level":"info","message":"Mood model response","moodScoreRaw":39.31,"moodType":"Moderate Stress","payload":{"mood_score":39.31,"mood_type":"Moderate Stress"},"timestamp":"2026-01-19T06:51:13.277Z","url":"http://localhost:8000/predict"}
+{"features":[6,2,1,0,1,5,5,5,1,4,2,3,1,1,3,2,3,2,2,2,2],"level":"info","message":"AI mood model used for stress daily check-in","moodScore":39.31,"moodType":"Moderate Stress","timestamp":"2026-01-19T06:51:13.363Z","userId":"6947826eab6a42942db990b5"}
+{"combinedScore":0.3931,"label":"Moderate Stress","level":"info","message":"Daily check-in stored","moodScore":39.31,"moodType":"Moderate Stress","timestamp":"2026-01-19T06:51:13.438Z","userId":"6947826eab6a42942db990b5"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-01-19T06:53:31.080Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-01-19T06:53:31.155Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-01-19T06:53:31.160Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-01-19T06:59:44.342Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-01-19T06:59:44.361Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-01-19T06:59:44.362Z"}
+{"cause":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{"ac-vw7qye0-shard-00-00.ztqkjkj.mongodb.net:27017":{"$clusterTime":null,"address":"ac-vw7qye0-shard-00-00.ztqkjkj.mongodb.net:27017","arbiters":[],"electionId":null,"error":{"beforeHandshake":false,"errorLabelSet":{}},"hosts":[],"iscryptd":false,"lastUpdateTime":2776061355,"lastWriteDate":0,"logicalSessionTimeoutMinutes":null,"maxBsonObjectSize":null,"maxMessageSizeBytes":null,"maxWireVersion":0,"maxWriteBatchSize":null,"me":null,"minRoundTripTime":0,"minWireVersion":0,"passives":[],"primary":null,"roundTripTime":-1,"setName":null,"setVersion":null,"tags":{},"topologyVersion":null,"type":"Unknown"},"ac-vw7qye0-shard-00-01.ztqkjkj.mongodb.net:27017":{"$clusterTime":null,"address":"ac-vw7qye0-shard-00-01.ztqkjkj.mongodb.net:27017","arbiters":[],"electionId":null,"error":{"beforeHandshake":false,"errorLabelSet":{}},"hosts":[],"iscryptd":false,"lastUpdateTime":2776061554,"lastWriteDate":0,"logicalSessionTimeoutMinutes":null,"maxBsonObjectSize":null,"maxMessageSizeBytes":null,"maxWireVersion":0,"maxWriteBatchSize":null,"me":null,"minRoundTripTime":0,"minWireVersion":0,"passives":[],"primary":null,"roundTripTime":-1,"setName":null,"setVersion":null,"tags":{},"topologyVersion":null,"type":"Unknown"},"ac-vw7qye0-shard-00-02.ztqkjkj.mongodb.net:27017":{"$clusterTime":null,"address":"ac-vw7qye0-shard-00-02.ztqkjkj.mongodb.net:27017","arbiters":[],"electionId":null,"error":{"beforeHandshake":false,"errorLabelSet":{}},"hosts":[],"iscryptd":false,"lastUpdateTime":2776061366,"lastWriteDate":0,"logicalSessionTimeoutMinutes":null,"maxBsonObjectSize":null,"maxMessageSizeBytes":null,"maxWireVersion":0,"maxWriteBatchSize":null,"me":null,"minRoundTripTime":0,"minWireVersion":0,"passives":[],"primary":null,"roundTripTime":-1,"setName":null,"setVersion":null,"tags":{},"topologyVersion":null,"type":"Unknown"}},"setName":"atlas-cgm938-shard-0","stale":false,"type":"ReplicaSetNoPrimary"},"errorLabelSet":{},"level":"error","message":"MongoDB connection error: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/","reason":{"commonWireVersion":0,"compatible":true,"heartbeatFrequencyMS":10000,"localThresholdMS":15,"logicalSessionTimeoutMinutes":null,"maxElectionId":null,"maxSetVersion":null,"servers":{"ac-vw7qye0-shard-00-00.ztqkjkj.mongodb.net:27017":{"$clusterTime":null,"address":"ac-vw7qye0-shard-00-00.ztqkjkj.mongodb.net:27017","arbiters":[],"electionId":null,"error":{"beforeHandshake":false,"errorLabelSet":{}},"hosts":[],"iscryptd":false,"lastUpdateTime":2776061355,"lastWriteDate":0,"logicalSessionTimeoutMinutes":null,"maxBsonObjectSize":null,"maxMessageSizeBytes":null,"maxWireVersion":0,"maxWriteBatchSize":null,"me":null,"minRoundTripTime":0,"minWireVersion":0,"passives":[],"primary":null,"roundTripTime":-1,"setName":null,"setVersion":null,"tags":{},"topologyVersion":null,"type":"Unknown"},"ac-vw7qye0-shard-00-01.ztqkjkj.mongodb.net:27017":{"$clusterTime":null,"address":"ac-vw7qye0-shard-00-01.ztqkjkj.mongodb.net:27017","arbiters":[],"electionId":null,"error":{"beforeHandshake":false,"errorLabelSet":{}},"hosts":[],"iscryptd":false,"lastUpdateTime":2776061554,"lastWriteDate":0,"logicalSessionTimeoutMinutes":null,"maxBsonObjectSize":null,"maxMessageSizeBytes":null,"maxWireVersion":0,"maxWriteBatchSize":null,"me":null,"minRoundTripTime":0,"minWireVersion":0,"passives":[],"primary":null,"roundTripTime":-1,"setName":null,"setVersion":null,"tags":{},"topologyVersion":null,"type":"Unknown"},"ac-vw7qye0-shard-00-02.ztqkjkj.mongodb.net:27017":{"$clusterTime":null,"address":"ac-vw7qye0-shard-00-02.ztqkjkj.mongodb.net:27017","arbiters":[],"electionId":null,"error":{"beforeHandshake":false,"errorLabelSet":{}},"hosts":[],"iscryptd":false,"lastUpdateTime":2776061366,"lastWriteDate":0,"logicalSessionTimeoutMinutes":null,"maxBsonObjectSize":null,"maxMessageSizeBytes":null,"maxWireVersion":0,"maxWriteBatchSize":null,"me":null,"minRoundTripTime":0,"minWireVersion":0,"passives":[],"primary":null,"roundTripTime":-1,"setName":null,"setVersion":null,"tags":{},"topologyVersion":null,"type":"Unknown"}},"setName":"atlas-cgm938-shard-0","stale":false,"type":"ReplicaSetNoPrimary"},"stack":"MongooseServerSelectionError: Could not connect to any servers in your MongoDB Atlas cluster. One common reason is that you're trying to access the database from an IP that isn't whitelisted. Make sure your current IP address is on your Atlas cluster's IP whitelist: https://www.mongodb.com/docs/atlas/security-whitelist/\n    at _handleConnectionErrors (C:\\Users\\m\\OneDrive\\Desktop\\Final year Project\\project_bemindful\\backend\\node_modules\\mongoose\\lib\\connection.js:1169:11)\n    at NativeConnection.openUri (C:\\Users\\m\\OneDrive\\Desktop\\Final year Project\\project_bemindful\\backend\\node_modules\\mongoose\\lib\\connection.js:1100:11)\n    at async connectDB (C:\\Users\\m\\OneDrive\\Desktop\\Final year Project\\project_bemindful\\backend\\src\\utils\\db.ts:10:5)\n    at async startServer (C:\\Users\\m\\OneDrive\\Desktop\\Final year Project\\project_bemindful\\backend\\src\\index.ts:43:5)","timestamp":"2026-01-19T08:40:27.850Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-01-19T08:43:14.363Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-01-19T08:43:14.375Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-01-19T08:43:14.376Z"}
+{"clampedScore":41.14,"level":"info","message":"Mood model response","moodScoreRaw":41.14,"moodType":"Moderate Stress","payload":{"mood_score":41.14,"mood_type":"Moderate Stress"},"timestamp":"2026-01-19T08:45:20.982Z","url":"http://localhost:8000/predict"}
+{"features":[6,2,1,0,1,5,5,5,1,4,2,3,1,1,3,2,2,2,2,2,2],"level":"info","message":"AI mood model used for baseline","moodScore":41.14,"timestamp":"2026-01-19T08:45:21.115Z","userId":"6947826eab6a42942db990b5"}
+{"baselineScore":0.4114,"level":"info","message":"Baseline stored","timestamp":"2026-01-19T08:45:21.325Z","userId":"6947826eab6a42942db990b5"}
+{"clampedScore":38.27,"level":"info","message":"Mood model response","moodScoreRaw":38.27,"moodType":"Moderate Stress","payload":{"mood_score":38.27,"mood_type":"Moderate Stress"},"timestamp":"2026-01-19T08:45:45.267Z","url":"http://localhost:8000/predict"}
+{"features":[1,1,1,0,1,5,5,5,1,4,2,3,1,1,3,2,2,2,2,2,2],"level":"info","message":"AI mood model used for baseline","moodScore":38.27,"timestamp":"2026-01-19T08:45:45.370Z","userId":"6947826eab6a42942db990b5"}
+{"baselineScore":0.38270000000000004,"level":"info","message":"Baseline stored","timestamp":"2026-01-19T08:45:45.462Z","userId":"6947826eab6a42942db990b5"}
+{"clampedScore":28.2,"level":"info","message":"Mood model response","moodScoreRaw":28.2,"moodType":"Moderate Stress","payload":{"mood_score":28.2,"mood_type":"Moderate Stress"},"timestamp":"2026-01-19T08:46:03.839Z","url":"http://localhost:8000/predict"}
+{"features":[1,1,1,0,1,5,5,5,1,4,2,3,1,1,3,4,4,4,0,2,0],"level":"info","message":"AI mood model used for stress daily check-in","moodScore":28.2,"moodType":"Moderate Stress","timestamp":"2026-01-19T08:46:03.949Z","userId":"6947826eab6a42942db990b5"}
+{"combinedScore":0.282,"label":"Moderate Stress","level":"info","message":"Daily check-in stored","moodScore":28.2,"moodType":"Moderate Stress","timestamp":"2026-01-19T08:46:04.126Z","userId":"6947826eab6a42942db990b5"}
+{"level":"info","message":"Activity logged for user 6947826eab6a42942db990b5","timestamp":"2026-01-19T08:57:08.301Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T13:52:35.705Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-03T13:52:35.717Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-03T13:52:35.718Z"}
+{"clampedScore":38.27,"level":"info","message":"Mood model response","moodScoreRaw":38.27,"moodType":"Moderate Stress","payload":{"mood_score":38.27,"mood_type":"Moderate Stress"},"timestamp":"2026-02-03T13:53:49.842Z","url":"http://localhost:8000/predict"}
+{"features":[1,1,1,0,1,5,5,5,1,4,2,3,1,1,3,2,2,2,2,2,2],"level":"info","message":"AI mood model used for stress daily check-in","moodScore":38.27,"moodType":"Moderate Stress","timestamp":"2026-02-03T13:53:49.939Z","userId":"6947826eab6a42942db990b5"}
+{"combinedScore":0.38270000000000004,"label":"Moderate Stress","level":"info","message":"Daily check-in stored","moodScore":38.27,"moodType":"Moderate Stress","timestamp":"2026-02-03T13:53:50.027Z","userId":"6947826eab6a42942db990b5"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:12:56.238Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-03T14:12:56.255Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-03T14:12:56.256Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:12:56.301Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-03T14:12:56.321Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-03T14:12:56.322Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:13:10.681Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-03T14:13:10.692Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-03T14:13:10.693Z"}
+{"clampedScore":44.43,"level":"info","message":"Mood model response","moodScoreRaw":44.43,"moodType":"Moderate Stress","payload":{"mood_score":44.43,"mood_type":"Moderate Stress"},"timestamp":"2026-02-03T14:16:00.066Z","url":"http://localhost:8000/predict"}
+{"features":[5,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2],"level":"info","message":"AI mood model used for baseline","moodScore":44.43,"timestamp":"2026-02-03T14:16:00.153Z","userId":"698202dac8d5085089656fa7"}
+{"baselineScore":0.4443,"level":"info","message":"Baseline stored","timestamp":"2026-02-03T14:16:00.263Z","userId":"698202dac8d5085089656fa7"}
+{"clampedScore":44.43,"level":"info","message":"Mood model response","moodScoreRaw":44.43,"moodType":"Moderate Stress","payload":{"mood_score":44.43,"mood_type":"Moderate Stress"},"timestamp":"2026-02-03T14:16:03.095Z","url":"http://localhost:8000/predict"}
+{"features":[5,3,3,3,3,3,3,3,3,3,3,3,3,3,3,2,2,2,2,2,2],"level":"info","message":"AI mood model used for stress daily check-in","moodScore":44.43,"moodType":"Moderate Stress","timestamp":"2026-02-03T14:16:03.184Z","userId":"698202dac8d5085089656fa7"}
+{"combinedScore":0.4443,"label":"Moderate Stress","level":"info","message":"Daily check-in stored","moodScore":44.43,"moodType":"Moderate Stress","timestamp":"2026-02-03T14:16:03.273Z","userId":"698202dac8d5085089656fa7"}
+{"level":"error","message":"Unexpected error: next is not a function","stack":"TypeError: next is not a function\n    at model.<anonymous> (C:\\Users\\m\\OneDrive\\Desktop\\Final year Project\\project_bemindful\\backend\\src\\models\\Activity.ts:60:3)\n    at Kareem.execPre (C:\\Users\\m\\OneDrive\\Desktop\\Final year Project\\project_bemindful\\backend\\node_modules\\kareem\\index.js:63:39)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async model.$__save (C:\\Users\\m\\OneDrive\\Desktop\\Final year Project\\project_bemindful\\backend\\node_modules\\mongoose\\lib\\model.js:369:5)\n    at async model.save (C:\\Users\\m\\OneDrive\\Desktop\\Final year Project\\project_bemindful\\backend\\node_modules\\mongoose\\lib\\model.js:609:5)\n    at async logActivity (C:\\Users\\m\\OneDrive\\Desktop\\Final year Project\\project_bemindful\\backend\\src\\controllers\\activityController.ts:32:5)","timestamp":"2026-02-03T14:16:20.619Z"}
+{"level":"error","message":"Unexpected error: next is not a function","stack":"TypeError: next is not a function\n    at model.<anonymous> (C:\\Users\\m\\OneDrive\\Desktop\\Final year Project\\project_bemindful\\backend\\src\\models\\Activity.ts:60:3)\n    at Kareem.execPre (C:\\Users\\m\\OneDrive\\Desktop\\Final year Project\\project_bemindful\\backend\\node_modules\\kareem\\index.js:63:39)\n    at processTicksAndRejections (node:internal/process/task_queues:105:5)\n    at async model.$__save (C:\\Users\\m\\OneDrive\\Desktop\\Final year Project\\project_bemindful\\backend\\node_modules\\mongoose\\lib\\model.js:369:5)\n    at async model.save (C:\\Users\\m\\OneDrive\\Desktop\\Final year Project\\project_bemindful\\backend\\node_modules\\mongoose\\lib\\model.js:609:5)\n    at async logActivity (C:\\Users\\m\\OneDrive\\Desktop\\Final year Project\\project_bemindful\\backend\\src\\controllers\\activityController.ts:32:5)","timestamp":"2026-02-03T14:18:03.301Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:19:05.792Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-03T14:19:05.800Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-03T14:19:05.801Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:19:05.860Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:19:05.861Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-03T14:19:05.871Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-03T14:19:05.871Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-03T14:19:05.870Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-03T14:19:05.871Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:21:29.293Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-03T14:21:29.302Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-03T14:21:29.303Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:22:50.746Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-03T14:22:50.756Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-03T14:22:50.758Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:22:50.873Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-03T14:22:50.883Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-03T14:22:50.884Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:22:52.783Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:23:24.190Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:23:24.190Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-03T14:23:24.208Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-03T14:23:24.209Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-03T14:23:24.209Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-03T14:23:24.211Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:23:33.953Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:24:59.035Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-03T14:24:59.044Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-03T14:24:59.045Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:24:59.064Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-03T14:24:59.072Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-03T14:24:59.073Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:25:32.340Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-03T14:25:32.399Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-03T14:25:32.403Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-03T14:25:32.459Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-03T14:25:32.514Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-03T14:25:32.516Z"}
+{"level":"info","message":"Activity logged for user 698202dac8d5085089656fa7","timestamp":"2026-02-03T14:25:33.658Z"}
+{"code":"ECONNREFUSED","hostname":"_mongodb._tcp.bemindful.ztqkjkj.mongodb.net","level":"error","message":"MongoDB connection error: querySrv ECONNREFUSED _mongodb._tcp.bemindful.ztqkjkj.mongodb.net","stack":"Error: querySrv ECONNREFUSED _mongodb._tcp.bemindful.ztqkjkj.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17)","syscall":"querySrv","timestamp":"2026-02-04T06:03:42.554Z"}
+{"code":"ECONNREFUSED","hostname":"_mongodb._tcp.bemindful.ztqkjkj.mongodb.net","level":"error","message":"MongoDB connection error: querySrv ECONNREFUSED _mongodb._tcp.bemindful.ztqkjkj.mongodb.net","stack":"Error: querySrv ECONNREFUSED _mongodb._tcp.bemindful.ztqkjkj.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17)","syscall":"querySrv","timestamp":"2026-02-04T06:03:42.596Z"}
+{"code":"ECONNREFUSED","hostname":"_mongodb._tcp.bemindful.ztqkjkj.mongodb.net","level":"error","message":"MongoDB connection error: querySrv ECONNREFUSED _mongodb._tcp.bemindful.ztqkjkj.mongodb.net","stack":"Error: querySrv ECONNREFUSED _mongodb._tcp.bemindful.ztqkjkj.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17)","syscall":"querySrv","timestamp":"2026-02-04T13:45:32.789Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-04T13:48:07.200Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-04T13:48:07.245Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-04T13:48:07.248Z"}
+{"clampedScore":38.27,"level":"info","message":"Mood model response","moodScoreRaw":38.27,"moodType":"Moderate Stress","payload":{"mood_score":38.27,"mood_type":"Moderate Stress"},"timestamp":"2026-02-04T13:48:48.495Z","url":"http://localhost:8000/predict"}
+{"features":[1,1,1,0,1,5,5,5,1,4,2,3,1,1,3,2,2,2,2,2,2],"level":"info","message":"AI mood model used for stress daily check-in","moodScore":38.27,"moodType":"Moderate Stress","timestamp":"2026-02-04T13:48:48.610Z","userId":"6947826eab6a42942db990b5"}
+{"combinedScore":0.38270000000000004,"label":"Moderate Stress","level":"info","message":"Daily check-in stored","moodScore":38.27,"moodType":"Moderate Stress","timestamp":"2026-02-04T13:48:48.688Z","userId":"6947826eab6a42942db990b5"}
+{"level":"info","message":"Activity logged for user 6947826eab6a42942db990b5","timestamp":"2026-02-04T13:49:05.120Z"}
+{"code":"ECONNREFUSED","hostname":"_mongodb._tcp.bemindful.ztqkjkj.mongodb.net","level":"error","message":"MongoDB connection error: querySrv ECONNREFUSED _mongodb._tcp.bemindful.ztqkjkj.mongodb.net","stack":"Error: querySrv ECONNREFUSED _mongodb._tcp.bemindful.ztqkjkj.mongodb.net\n    at QueryReqWrap.onresolve [as oncomplete] (node:internal/dns/promises:294:17)","syscall":"querySrv","timestamp":"2026-02-05T12:52:03.394Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-09T15:10:00.061Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-09T15:10:00.068Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-09T15:10:00.068Z"}
+{"clampedScore":38.27,"level":"info","message":"Mood model response","moodScoreRaw":38.27,"moodType":"Moderate Stress","payload":{"mood_score":38.27,"mood_type":"Moderate Stress"},"timestamp":"2026-02-09T15:10:58.113Z","url":"http://localhost:8000/predict"}
+{"features":[1,1,1,0,1,5,5,5,1,4,2,3,1,1,3,2,2,2,2,2,2],"level":"info","message":"AI mood model used for stress daily check-in","moodScore":38.27,"moodType":"Moderate Stress","timestamp":"2026-02-09T15:10:58.207Z","userId":"6947826eab6a42942db990b5"}
+{"combinedScore":0.38270000000000004,"label":"Moderate Stress","level":"info","message":"Daily check-in stored","moodScore":38.27,"moodType":"Moderate Stress","timestamp":"2026-02-09T15:10:58.323Z","userId":"6947826eab6a42942db990b5"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-09T15:13:58.603Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-09T15:13:58.611Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-09T15:13:58.612Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-09T15:17:44.455Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-09T15:17:44.462Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-09T15:17:44.463Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-09T15:18:12.373Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-09T15:18:12.379Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-09T15:18:12.380Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-09T15:41:31.055Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-09T15:41:31.069Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-09T15:41:31.070Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-09T15:41:56.757Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-09T15:41:56.766Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-09T15:41:56.767Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-09T15:43:28.673Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-09T15:43:28.716Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-09T15:43:28.721Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-10T04:37:49.066Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-10T04:37:49.087Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-10T04:37:49.092Z"}
+{"clampedScore":39.11,"level":"info","message":"Mood model response","moodScoreRaw":39.11,"moodType":"Moderate Stress","payload":{"mood_score":39.11,"mood_type":"Moderate Stress"},"timestamp":"2026-02-10T04:39:47.381Z","url":"http://localhost:8000/predict"}
+{"features":[1,1,1,0,1,5,5,5,1,4,2,3,1,1,3,3,1,3,2,2,2],"level":"info","message":"AI mood model used for stress daily check-in","moodScore":39.11,"moodType":"Moderate Stress","timestamp":"2026-02-10T04:39:47.438Z","userId":"6947826eab6a42942db990b5"}
+{"combinedScore":0.3911,"label":"Moderate Stress","level":"info","message":"Daily check-in stored","moodScore":39.11,"moodType":"Moderate Stress","timestamp":"2026-02-10T04:39:47.493Z","userId":"6947826eab6a42942db990b5"}
+{"level":"info","message":"Activity logged for user 6947826eab6a42942db990b5","timestamp":"2026-02-10T04:41:46.860Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-02-10T05:31:44.489Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-02-10T05:31:44.496Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-10T05:31:44.497Z"}
+{"level":"info","message":"Activity logged for user 6947826eab6a42942db990b5","timestamp":"2026-02-10T05:33:39.696Z"}
+{"level":"info","message":"Activity logged for user 6947826eab6a42942db990b5","timestamp":"2026-02-10T05:35:25.019Z"}

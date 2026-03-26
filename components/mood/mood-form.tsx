@@ -111,6 +111,7 @@ const { user, isAuthenticated, loading } = useSession();
         description: moodType
           ? `Detected: ${moodType} (score ${Math.round(savedScore)})`
           : "Mood tracked successfully!",
+        variant: "default",
       });
 
       // Call onSuccess to close the modal and pass recommendations

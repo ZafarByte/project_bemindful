@@ -443,11 +443,11 @@ export function ReportDownloadButton() {
         yPos += graphHeight + 30;
       }
 
-      // 6. Daily Check-in Summary (High Level)
+      // 6. Cumulative Check-in Summary (High Level)
       doc.setFontSize(16);
       doc.setTextColor(40, 40, 40);
       doc.setFont("helvetica", "bold");
-      doc.text("Daily Check-in Summary", 14, yPos);
+      doc.text("Cumulative Check-in Summary", 14, yPos);
       yPos += 10;
 
       // Calculate stats
@@ -566,7 +566,9 @@ export function ReportDownloadButton() {
       const splitDisclaimer = doc.splitTextToSize(disclaimer, pageWidth - 28);
       doc.text(splitDisclaimer, 14, footerY);
 
-      doc.save("bemindful-report.pdf");
+      const safeName = (currentUser?.name || "User").replace(/\s+/g, '_');
+      const dateStr = format(new Date(), "yyyy-MM-dd");
+      doc.save(`${safeName}_${dateStr}.pdf`);
 
     } catch (error) {
       console.error("Failed to generate PDF", error);

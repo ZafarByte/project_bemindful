@@ -1,5 +1,6 @@
 
 import mongoose, { Document, Schema } from "mongoose";
+import { encrypt, decrypt } from "../utils/encryption";
 
 export interface IActivity extends Document {
   userId: mongoose.Types.ObjectId;
@@ -50,6 +51,20 @@ const activitySchema = new Schema<IActivity>(
     timestamps: true,
   }
 );
+
+// Encrypt description before saving if it's a journal entry
+activitySchema.pre("save", async function () {
+  if (this.type === "journaling" && this.description && this.isModified("description")) {
+    this.description = encrypt(this.description);
+  }
+});
+
+// Decrypt description after retrieving
+activitySchema.post("init", function (doc) {
+  if (doc.type === "journaling" && doc.description) {
+    doc.description = decrypt(doc.description);
+  }
+});
 
 // Index for efficient querying
 activitySchema.index({ userId: 1, timestamp: -1 });

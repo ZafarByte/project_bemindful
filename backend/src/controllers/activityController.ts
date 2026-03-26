@@ -73,9 +73,12 @@ export const getActivities = async (
       .sort({ timestamp: -1 })
       .limit(Number(limit));
 
+    const total = await Activity.countDocuments(query);
+
     res.status(200).json({
       success: true,
       data: activities,
+      total,
     });
   } catch (error) {
     next(error);
@@ -97,15 +100,15 @@ export const updateActivity = async (
       return res.status(401).json({ message: "User not authenticated" });
     }
 
-    const activity = await Activity.findOneAndUpdate(
-      { _id: id, userId },
-      { description },
-      { new: true }
-    );
+    const activity = await Activity.findOne({ _id: id, userId });
 
     if (!activity) {
       return res.status(404).json({ message: "Activity not found" });
     }
+
+    if (description !== undefined) activity.description = description;
+    
+    await activity.save();
 
     res.status(200).json({
       success: true,

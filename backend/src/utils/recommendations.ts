@@ -45,24 +45,24 @@ export const getRecommendations = (
       // 3. Physical Activity
       const physicalActivity = baselineAnswers["physicalActivity"];
       if (physicalActivity !== undefined && physicalActivity <= 1) { // 0-2 days
-          recommendations.push("Regular movement is a powerful antidepressant. Try a 15-minute walk today to clear your mind.");
+          recommendations.push("Regular movement is a powerful antidepressant. Try a 15-minute walk or a few rounds of Surya Namaskar (Sun Salutations) to energize your body.");
       }
 
        // 4. Diet Quality
       const dietQuality = baselineAnswers["dietQuality"];
       if (dietQuality !== undefined && dietQuality <= 2) { // Unhealthy
-          recommendations.push("Nutrition affects how we feel. Consider adding more whole foods and staying hydrated to support your energy.");
+          recommendations.push("Nutrition affects how we feel. Focus on home-cooked meals (ghar ka khana) and stay hydrated with water or nimbu pani instead of sugary drinks.");
       }
 
       // 5. Age-Specific Suggestions
       const age = Number(baselineAnswers["age"]);
       if (!isNaN(age)) {
           if (age < 25) {
-              recommendations.push("At this stage of life, academic or early career pressure can be intense. Remember to balance ambition with meaningful downtime.");
+              recommendations.push("At this stage, academic pressure (exams, entrances) or career starts can be overwhelming. Remember to take breaks and talk to friends or family.");
           } else if (age >= 25 && age < 50) {
-               recommendations.push("Balancing work, family, and personal time is challenging. Try 'micro-breaks'—just 2 minutes of focus on breathing every few hours.");
+               recommendations.push("Balancing work, family, and social desires is tough. Try 'micro-breaks'—just 2 minutes of deep breathing (Pranayama) can reset your stress.");
           } else if (age >= 50) {
-               recommendations.push("Physical well-being is closely tied to mood. Gentle low-impact exercises like walking or yoga can be very beneficial.");
+               recommendations.push("Physical well-being is tied to mood. Gentle exercises like morning walks or light Yoga can range of motion and mental clarity.");
           }
       }
 
