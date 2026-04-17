@@ -621,3 +621,12 @@
 {"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-02-10T05:31:44.497Z"}
 {"level":"info","message":"Activity logged for user 6947826eab6a42942db990b5","timestamp":"2026-02-10T05:33:39.696Z"}
 {"level":"info","message":"Activity logged for user 6947826eab6a42942db990b5","timestamp":"2026-02-10T05:35:25.019Z"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-04-17T13:19:48.463Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-04-17T13:19:48.469Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-04-17T13:19:48.470Z"}
+{"clampedScore":49.93,"level":"info","message":"Mood model response","moodScoreRaw":49.93,"moodType":"Neutral","payload":{"mood_score":49.93,"mood_type":"Neutral"},"timestamp":"2026-04-17T13:22:08.760Z","url":"http://localhost:8000/predict"}
+{"features":[1,1,1,0,1,5,5,5,1,4,2,3,1,1,3,1,1,3,3,3,3],"level":"info","message":"AI mood model used for stress daily check-in","moodScore":49.93,"moodType":"Neutral","timestamp":"2026-04-17T13:22:09.429Z","userId":"6947826eab6a42942db990b5"}
+{"combinedScore":0.4993,"label":"Neutral","level":"info","message":"Daily check-in stored","moodScore":49.93,"moodType":"Neutral","timestamp":"2026-04-17T13:22:09.625Z","userId":"6947826eab6a42942db990b5"}
+{"level":"info","message":"Connected to MongoDB Atlas","timestamp":"2026-04-17T13:26:56.499Z"}
+{"level":"info","message":"Server is running on port 3001","timestamp":"2026-04-17T13:26:56.517Z"}
+{"level":"info","message":"Inngest endpoint available at http://localhost:3001/api/inngest","timestamp":"2026-04-17T13:26:56.519Z"}
