@@ -190,7 +190,48 @@ export function ReportDownloadButton() {
       doc.text(splitInterp, 14, yPos);
       yPos += (splitInterp.length * 6) + 10;
 
-      // 3. Baseline Lifestyle Assessment
+      // 3. Stress Categories Reference
+      doc.setFontSize(16);
+      doc.setTextColor(40, 40, 40);
+      doc.setFont("helvetica", "bold");
+      doc.text("Stress Categories Reference", 14, yPos);
+      yPos += 10;
+
+      const stressCategoriesData = [
+        ["High Stress", "0 - 39", "Seek professional support and prioritize self-care"],
+        ["Moderate Stress", "40 - 59", "Focus on stress management and healthy habits"],
+        ["Mild Stress", "60 - 79", "Maintain current positive practices"],
+        ["Low Stress", "80 - 100", "Excellent wellness state; continue your routine"]
+      ];
+
+      autoTable(doc, {
+        startY: yPos,
+        head: [["CATEGORY", "SCORE RANGE", "RECOMMENDATION"]],
+        body: stressCategoriesData,
+        theme: 'plain',
+        styles: { 
+          fontSize: 9, 
+          cellPadding: 6,
+          lineColor: [240, 240, 240],
+          lineWidth: { bottom: 0.5 }
+        },
+        headStyles: { 
+          fillColor: [248, 250, 252],
+          textColor: secondaryColor,
+          fontStyle: 'bold',
+          fontSize: 10
+        },
+        columnStyles: {
+          0: { halign: 'left', fontStyle: 'bold' },
+          1: { halign: 'center', fontStyle: 'bold' },
+          2: { halign: 'left' }
+        }
+      });
+
+      // 4. Baseline Lifestyle Assessment
+      yPos = (doc as any).lastAutoTable?.finalY || yPos;
+      yPos += 15;
+
       doc.setFontSize(16);
       doc.setTextColor(40, 40, 40);
       doc.setFont("helvetica", "bold");

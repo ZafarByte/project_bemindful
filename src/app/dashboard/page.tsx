@@ -209,7 +209,7 @@ export default function DashboardPage() {
 
     const wellnessStats = useMemo(() => {
         const moodValue = latestMoodScore !== null 
-            ? `${Math.round(latestMoodScore)}` 
+            ? `${Math.round(latestMoodScore)}/100` 
             : "No data";
 
         return [
